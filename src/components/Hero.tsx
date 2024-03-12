@@ -11,8 +11,8 @@ const Hero:React.FC = () => {
         console.log(data);
           
     }
-    const changeIpValue=(v:React.FormEvent<HTMLFormElement>)=>{
-        setIpValue(v.target.value)
+    const changeIpValue=(v:string)=>{
+        setIpValue(v)
         
     }
     const handleSubmit=(v:React.FormEvent<HTMLFormElement>)=>{
@@ -23,7 +23,7 @@ const Hero:React.FC = () => {
     <div className="hero">
         <h1>IP Address Tracker</h1>
         <form action="ip" onSubmit={(e)=>{handleSubmit(e)}}>
-            <input onChange={(v)=>{changeIpValue(v)}} value={ipValue} type="text" placeholder="Search for any IP address or domain"/>
+            <input onChange={(v)=>{changeIpValue(v.target.value)}} value={ipValue} type="text" placeholder="Search for any IP address or domain"/>
             <button type='submit'>
                 <img src="../public/arrow-right-s-line.svg" alt=">" />
             </button>
